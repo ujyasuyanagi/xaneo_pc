@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -39,7 +39,7 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -71,7 +71,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
          OLD_RPATH "/home/xaneodev/xaneo_pc/build/linux/x64/debug/plugins/file_selector_linux:/home/xaneodev/xaneo_pc/build/linux/x64/debug/plugins/screen_retriever:/home/xaneodev/xaneo_pc/build/linux/x64/debug/plugins/url_launcher_linux:/home/xaneodev/xaneo_pc/build/linux/x64/debug/plugins/window_manager:/home/xaneodev/xaneo_pc/linux/flutter/ephemeral:"
          NEW_RPATH "$ORIGIN/lib")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/llvm-strip" "$ENV{DESTDIR}/home/xaneodev/xaneo_pc/build/linux/x64/debug/bundle/xaneo_pc_new")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/xaneodev/xaneo_pc/build/linux/x64/debug/bundle/xaneo_pc_new")
     endif()
   endif()
 endif()
